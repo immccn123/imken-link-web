@@ -54,7 +54,6 @@ api.get('/user/me').then(() => {
 })
 
 addEventListener('keyup', (event) => {
-  console.log(event.key)
   if (event.key == 'Enter') {
     event.preventDefault();
     document.getElementById('loginButton').click();

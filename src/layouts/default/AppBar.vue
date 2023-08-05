@@ -7,7 +7,7 @@
   </v-app-bar>
   <v-navigation-drawer floating v-model="show">
     <v-list nav>
-      <router-link to="/" style="text-decoration: none; color: unset;">
+      <router-link to="/" style="text-decoration: none; color: unset;" v-if="showHomepage != 0">
         <v-list-item prepend-icon="mdi-home" title="Home" value="/" :active="isActive['/']"></v-list-item>
       </router-link>
       <router-link to="/admin" style="text-decoration: none; color: unset;">
@@ -29,6 +29,8 @@ import { useRouter } from 'vue-router';
 const siteName = import.meta.env.VITE_SITE_NAME || 'Imken-Link';
 const show = ref(false);
 const router = useRouter()
+const showHomepage = import.meta.env.VITE_SHOW_HOMEPAGE
+
 const isActive = {
   '/': false,
   '/admin': false,
