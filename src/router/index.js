@@ -24,6 +24,11 @@ const routes = [
         name: 'Admin',
         component: () => import('@/views/Admin.vue'),
       },
+      {
+        path: '/links/:pageId(\\d+)?',
+        name: 'Links',
+        component: () => import('@/views/Links.vue'),
+      },
     ],
   },
 ]

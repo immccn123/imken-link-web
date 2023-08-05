@@ -14,6 +14,10 @@
         <v-list-item prepend-icon="mdi-account-circle" title="Admin" value="/admin"
           :active="isActive['/admin']"></v-list-item>
       </router-link>
+      <router-link to="/links" style="text-decoration: none; color: unset;">
+        <v-list-item prepend-icon="mdi-link" title="Manage Links" value="/links"
+          :active="isActive['/links']"></v-list-item>
+      </router-link>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -23,11 +27,12 @@ import { ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 
 const siteName = import.meta.env.VITE_SITE_NAME || 'Imken-Link';
-const show = ref(true);
+const show = ref(false);
 const router = useRouter()
 const isActive = {
   '/': false,
   '/admin': false,
+  '/links': false,
 }
 
 watch(router.currentRoute, () => {
@@ -37,5 +42,4 @@ watch(router.currentRoute, () => {
     else isActive[key] = false;
   }
 })
-
 </script>
