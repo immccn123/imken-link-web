@@ -43,6 +43,9 @@ devDependencies:
   eslint-plugin-vue:
     specifier: ^9.3.0
     version: 9.3.0(eslint@8.37.0)
+  prettier:
+    specifier: ^3.0.1
+    version: 3.0.1
   sass:
     specifier: ^1.60.0
     version: 1.60.0
@@ -1234,6 +1237,12 @@ packages:
   /prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
+    dev: true
+
+  /prettier@3.0.1:
+    resolution: {integrity: sha512-fcOWSnnpCrovBsmFZIGIy9UqK2FaI7Hqax+DIO0A9UxeVoY4iweyaFjS5TavZN97Hfehph0nhsZnjlVKzEQSrQ==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /proxy-from-env@1.1.0:

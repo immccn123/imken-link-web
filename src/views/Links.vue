@@ -9,10 +9,14 @@
       </div>
     </div>
     <p v-if="isContentLoading">Content Loading...</p>
-    <div v-if="isLoggedIn && !isContentLoading" style="margin: 30px;">
+    <div v-if="isLoggedIn && !isContentLoading" style="margin: 30px">
       <p v-if="linkList.length == 0">No Data.</p>
       <v-list max-width="600">
-        <v-list-item v-for="link in linkList" :key="link" :title="host + '/' + link.shorten_link">
+        <v-list-item
+          v-for="link in linkList"
+          :key="link"
+          :title="host + '/' + link.shorten_link"
+        >
           <template #subtitle>{{ link.target_link }}</template>
           <template #append>
             <v-btn @click="deleteLink(link.id)">Delete</v-btn>
@@ -25,56 +29,57 @@
 </template>
 <script setup>
 import { ref } from 'vue';
-import { api } from '../api'
+import { api } from '../api';
 import { useRouter, useRoute } from 'vue-router';
 import { watch } from 'vue';
 
-const router = useRouter(), route = useRoute();
+const router = useRouter(),
+  route = useRoute();
 const username = ref('');
 const isLoading = ref(true);
 const isContentLoading = ref(true);
 const isLoggedIn = ref(false);
 const isOwn = ref(0);
 const host = window.location.origin;
-const linkList = ref([])
+const linkList = ref([]);
 const linkCount = ref(0);
 
-api.get('/user/me').then((response) => {
-  isLoggedIn.value = true;
-  isLoading.value = false;
-  username.value = response.data.username
-}).catch(() => {
-  router.push('/login');
-})
+api
+  .get('/user/me')
+  .then((response) => {
+    isLoggedIn.value = true;
+    isLoading.value = false;
+    username.value = response.data.username;
+  })
+  .catch(() => {
+    router.push('/login');
+  });
 
-var pageId = ref(route.params.pageId || 1)
-if (!route.params.pageId) {
-  router.push('/links/1');
-}
+const pageId = ref(route.params.pageId || 1);
+if (!route.params.pageId) router.push('/links/1');
 
 const getPage = () => {
   isContentLoading.value = true;
-  api.get(`/link/list?page=${pageId.value - 1}&is_own=${isOwn.value}`)
+  api
+    .get(`/link/list?page=${pageId.value - 1}&is_own=${isOwn.value}`)
     .then((response) => {
       linkList.value = response.data;
       isContentLoading.value = false;
-    })
-  api.get('/link/count')
-    .then((response) => {
-      linkCount.value = response.data;
-    })
-}
+    });
+  api.get('/link/count').then((response) => {
+    linkCount.value = response.data;
+  });
+};
 
 const deleteLink = (linkId) => {
-  api.delete(`/link/${linkId}`).finally(() => getPage())
-}
+  api.delete(`/link/${linkId}`).finally(() => getPage());
+};
 
 watch(route, getPage);
 
 watch(pageId, () => {
-  router.push(`/links/${pageId.value}`)
-})
+  router.push(`/links/${pageId.value}`);
+});
 
 getPage();
 </script>
-  

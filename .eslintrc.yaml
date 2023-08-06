@@ -1,0 +1,83 @@
+env:
+  node: true
+extends:
+  - eslint:recommended
+  - plugin:vue/vue3-essential
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+plugins:
+  - vue
+rules:
+  indent:
+    - error
+    - 2
+  linebreak-style:
+    - error
+    - unix
+  quotes:
+    - error
+    - single
+  semi:
+    - error
+    - always
+  accessor-pairs:
+    - error
+  arrow-body-style:
+    - error
+    - as-needed
+  block-scoped-var:
+    - error
+  camelcase:
+    - error
+    - properties: always
+  consistent-return:
+    - error
+  curly:
+    - error
+    - multi
+    - consistent
+  default-case:
+    - error
+  default-case-last:
+    - error
+  default-param-last:
+    - error
+  dot-notation:
+    - error
+  func-style:
+    - error
+    - expression
+  max-depth:
+    - error
+    - 3
+  no-alert:
+    - error
+  multiline-comment-style:
+    - error
+    - starred-block
+  new-cap:
+    - error
+  no-caller:
+    - error
+  no-console:
+    - warn
+  no-else-return:
+    - warn
+  no-extra-label:
+    - error
+  no-label-var:
+    - error
+  no-lonely-if:
+    - error
+  no-loop-func:
+    - error
+  no-new-func:
+    - error
+  one-var:
+    - error
+    - let: always
+  prefer-const:
+    - error
+  vars-on-top:
+    - error
