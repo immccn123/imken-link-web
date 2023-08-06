@@ -1,7 +1,15 @@
 {
   "name": "imken-link-web",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
+  "license": "AGPL-3.0",
+  "description": "the web interface of project imken.link",
+  "homepage": "https://imken.link",
+  "author": {
+    "name": "Imken Luo",
+    "url": "https://imken.moe/",
+    "email": "me@imken.moe"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",

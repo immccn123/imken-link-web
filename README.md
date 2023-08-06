@@ -1,57 +1,27 @@
-# essentials
+# imken-link-web
 
-## Project setup
+This repository is a part of [imken-link](https://github.com/immccn123/imken-link).
 
-```
-# yarn
-yarn
+[![License](https://img.shields.io/badge/license-AGPL--3.0-blue)](https://www.gnu.org/licenses/agpl-3.0.html)
 
-# npm
-npm install
+## Build Instructions
 
-# pnpm
-pnpm install
-```
+Please refer to the build guide of the parent project [imken-link](https://github.com/immccn123/imken-link) to set up and deploy the entire Imken.link short link project.
 
-### Compiles and hot-reloads for development
+## Development Instructions
 
-```
-# yarn
-yarn dev
+You can modify the communication endpoint with the backend API by setting the environment variable `VITE_BASE_URL`. This will help you test and debug in the development environment.
 
-# npm
-npm run dev
+You can also use the `.env` file.
 
-# pnpm
-pnpm dev
+```bash
+export VITE_BASE_URL=https://your-backend-api.com
 ```
 
-### Compiles and minifies for production
+## License
 
-```
-# yarn
-yarn build
+This project is released under the AGPL-3.0 license.
 
-# npm
-npm run build
+## Project Links
 
-# pnpm
-pnpm build
-```
-
-### Lints and fixes files
-
-```
-# yarn
-yarn lint
-
-# npm
-npm run lint
-
-# pnpm
-pnpm lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://vitejs.dev/config/).
+- Parent project repository: [immccn123/imken-link](https://github.com/immccn123/imken-link)
